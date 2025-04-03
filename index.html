@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary, My Love!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @font-face {
+        font-family: 'LucideIcons';
+         /* Using CDN link from your provided code */
+        src: url(https://cdn.jsdelivr.net/npm/lucide-static@latest/font/Lucide.ttf) format('truetype');
+      }
+      .lucide {
+        font-family: 'LucideIcons';
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      /* Custom Styles */
+      html {
+        scroll-behavior: smooth; /* Enable smooth scrolling */
+      }
+      body {
+        font-family: 'Inter', sans-serif; /* Use Inter font */
+        background: linear-gradient(135deg, #fde2e4 0%, #fad2e1 50%, #e2e2f8 100%); /* Soft gradient background */
+        color: #333;
+      }
+      .section-card {
+        background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white cards */
+        backdrop-filter: blur(10px);
+        border-radius: 1rem; /* Rounded corners */
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .section-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+      .reveal-button {
+          background-color: #ff8fab; /* Pink button */
+          color: white;
+          padding: 0.75rem 1.5rem;
+          border-radius: 9999px; /* Pill shape */
+          font-weight: 600;
+          transition: background-color 0.3s ease, transform 0.3s ease;
+          cursor: pointer;
+          border: none;
+          box-shadow: 0 4px 15px rgba(255, 143, 171, 0.4);
+      }
+      .reveal-button:hover {
+          background-color: #fb6f92; /* Darker pink on hover */
+          transform: scale(1.05);
+      }
+      .nav-link {
+        transition: color 0.3s ease, transform 0.3s ease;
+        display: inline-block; /* Needed for transform */
+      }
+      .nav-link:hover {
+        color: #fb6f92; /* Pink hover color */
+        transform: translateY(-2px);
+      }
+      /* Simple fade-in animation */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .fade-in {
+        animation: fadeIn 0.8s ease-out forwards;
+      }
+      /* Staggered fade-in for gallery items */
+      .gallery-item {
+        opacity: 0;
+        animation: fadeIn 0.8s ease-out forwards;
+        /* *** ADDED ASPECT RATIO FOR TALLER IMAGES *** */
+        /* You might adjust this ratio (e.g., aspect-[3/4], aspect-[2/3]) */
+        /* aspect-[9/16] makes them quite tall */
+        aspect-ratio: 9 / 16;
+        overflow: hidden; /* Ensure image cover doesn't spill out */
+        border-radius: 0.5rem; /* Match image radius */
+        background-color: #e0e0e0; /* Background for letterboxing if needed */
+      }
+      .gallery-item img {
+         /* Ensure image covers the new aspect ratio container */
+         width: 100%;
+         height: 100%;
+         object-fit: cover; /* Changed from object-cover in original user code, but cover is better here */
+      }
+      /* Add placeholder styles */
+      .placeholder-img {
+        background-color: #e0e0e0; /* Light gray background */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #9e9e9e; /* Gray text */
+        font-size: 0.875rem; /* 14px */
+        border-radius: 0.5rem; /* Rounded corners */
+        /* Removed aspect-ratio here as parent controls it */
+        width: 100%;
+        height: 100%; /* Fill parent */
+      }
+       /* Added prose styles for better letter formatting */
+      .prose p {
+        margin-bottom: 1em; /* Add space between paragraphs */
+      }
+      .prose .text-right {
+        text-align: right;
+      }
+      .prose .font-semibold {
+        font-weight: 600;
+      }
+      .prose .text-lg {
+        font-size: 1.125rem; /* Larger font for intro */
+        line-height: 1.75rem;
+      }
+      .prose .text-\[\#fb6f92\] { /* Target the specific pink color class */
+        color: #fb6f92;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="antialiased">
+
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm py-3 px-6 mb-8 rounded-b-lg">
+        <div class="container mx-auto flex justify-center space-x-6 md:space-x-10">
+            <a href="#home" class="nav-link text-gray-700 font-semibold">Home</a>
+            <a href="#story" class="nav-link text-gray-700 font-semibold">Our Story</a>
+            <a href="#gallery" class="nav-link text-gray-700 font-semibold">Gallery</a>
+            <a href="#letter" class="nav-link text-gray-700 font-semibold">Letter</a>
+            <a href="#wishes" class="nav-link text-gray-700 font-semibold">Wishes</a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 max-w-4xl">
+
+        <section id="home" class="text-center mb-16 pt-16 fade-in">
+             <img src="https://placehold.co/800x400/fde2e4/fb6f92?text=Our+Anniversary" alt="Anniversary Hero Image" class="w-full max-w-2xl mx-auto rounded-xl shadow-lg mb-8 object-cover" onerror="this.src='https://placehold.co/800x400/cccccc/ffffff?text=Image+Error'">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Happiest Anniversary, My Dearest <span class="text-[#fb6f92]">GEHNAAA 🫶💕</span>!</h1>
+            <p class="text-lg text-gray-600">Celebrating <span class="font-semibold">Our 1st Wonderful Month Together !!</span></p>
+            </section>
+
+        <section id="story" class="section-card fade-in">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Our Beautiful Journey</h2>
+            <div class="space-y-6">
+                 <div class="flex items-start space-x-4">
+                    <span class="lucide text-2xl text-[#ff8fab] mt-1">&#xe134;</span> <div>
+                        <h3 class="font-semibold text-lg text-gray-700">The Day We Met</h3>
+                        <p class="text-gray-600">Remember that day at Night We were watching Jab We Met ? Little did we know it was the start of something incredible...</p>
+                         </div>
+                </div>
+                 <div class="flex items-start space-x-4">
+                    <span class="lucide text-2xl text-[#ff8fab] mt-1">&#xe4b2;</span> <div>
+                        <h3 class="font-semibold text-lg text-gray-700">Our Movie Dates and Yapping Sessions</h3>
+                         <p class="text-gray-600">Full of love and laughter w those player struggles for some movies 😭. It felt like magic.</p>
+                         </div>
+                </div>
+                 <div class="flex items-start space-x-4">
+                    <span class="lucide text-2xl text-[#ff8fab] mt-1">&#xe192;</span> <div>
+                        <h3 class="font-semibold text-lg text-gray-700">A Memorable Trip of yours to punjab </h3>
+                         <p class="text-gray-600">times which were crucial for both of us but we stayed together through thick thin as you had your boards , fully tensed and anxious an mere bhi exams chal rahe the but somehow we cleared them together ! mujhe toh border vaale scene me boht chinta hoti thi🥺🥺 </p>
+                         </div>
+                </div>
+                </div>
+        </section>
+
+        <section id="gallery" class="section-card fade-in">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Moments We Cherish</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-16">
+                <div class="gallery-item" style="animation-delay: 0.1s;">
+                    <img src="\images\img 1 eyes.jpg" alt="Gallery Image 1" class="rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x600/cccccc/ffffff?text=Image+Error'"> </div>
+                 <div class="gallery-item" style="animation-delay: 0.2s;">
+                     <img src="\images\img 3.jpg" alt="Gallery Image 2" class="rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x600/cccccc/ffffff?text=Image+Error'">
+                </div>
+                 <div class="gallery-item" style="animation-delay: 0.3s;">
+                    <img src="/images/img2.jpg" alt="Gallery Image 3" class="rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x600/cccccc/ffffff?text=Image+Error'">
+                </div>
+                 <div class="gallery-item" style="animation-delay: 0.4s;">
+                     <img src="/images/img4.jpg" alt="Gallery Image 4" class="rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x600/cccccc/ffffff?text=Image+Error'">
+                </div>
+                 <div class="gallery-item" style="animation-delay: 0.5s;">
+                     <img src="/images/img5.jpg" alt="Gallery Image 5" class="rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x600/cccccc/ffffff?text=Image+Error'">
+                </div>
+                 <div class="gallery-item" style="animation-delay: 0.6s;">
+                     <img src="/images/img6.jpg" alt="Gallery Image 6" class="rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x600/cccccc/ffffff?text=Image+Error'">
+                </div>
+                 </div>
+        </section>
+
+        <section id="letter" class="section-card fade-in text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">A Letter For You</h2>
+            <button id="revealLetterBtn" class="reveal-button mb-6 inline-flex items-center space-x-2">
+                <span class="lucide">&#xe1d3;</span> <span>Click to Reveal My Letter</span>
+            </button>
+            <div id="letterContent" class="hidden text-left bg-white p-6 rounded-lg shadow-inner prose max-w-none">
+                <p class="text-lg font-semibold text-[#fb6f92]">My Lovely gehnaaa,</p>
+                <p>A month of togetherness w you has passed and i have no words to tell you that how much better it was from my whole life !!! i finally feel like i have found my person , my love , my Peace , MY EVERYTHING ❤️</p>
+                <p>This Month made me realise that there is still love left for me to give and to have some too , i mean justr look at us we love each other so much everyday and still it never feels enough !!! You made my good self get back from where it was buried deep down indise myself as it was heartbroken and got played not once  but twice , it was hard for me to even trust my closest ones but you made my life giving me hapines and teaching me again to trust and love !! </p>
+                <p>Trust me Gehnaa , i am gonna love you like ssomething yu have never ever imagined in your life , you are my life . you are what i want  , you are what i need , you are my only necessity babe !</p>
+                <p>Thank you for being you, for loving me, giving me your everything and trusting me w you as ik it was harrd for you to let someone this close and then you let be w you which  i am always grateful of ...  </p>
+                <p>I have imagined a whole life w you and that my goal ngl , doing everything for everyone so finallly i end up w you and we can stay together alone isoalted from probnlems and just cherishing each other and making love for life long . you even became so naive and vulnerable to me , opened yourself up and even did something you were afraid of bcoz of me and for the first time you felt what pleasure is , i will make sure that someday when we meet i will show all of my love in every way possible wheter it be physial or the connection between our souls ! i have never been to a long distance and trust me this much distance suckksss but my love for you is more than any distance that i will even wait even if you would br in the corner of the universe and love you endlessly ! </p>
+                <p>cheers to our love and affection for each other with utmost care . i look forward to be w you till i die , wanna have kids w you and live a happly married life . To more movie dates , spotify jams , late night soothing peaceful calls , snap yapping sessions !I Lovee you soo so so so so so so so so so so MUCHHHHHHHHHHHHHH GEHNAAAAAAAAA !!!</p>
+                <p> Looking forward to meet you and marry you sooon</p>
+                <p class="text-right font-semibold">Always and FOrever ,<br>Your Everything -DHRUVVVVVV</p>
+            </div>
+             </section>
+
+        <section id="wishes" class="section-card fade-in text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">My ONly Wish </h2>
+             <span class="lucide text-5xl text-[#ff8fab] mb-4 inline-block">&#xe46d;</span> <p class="text-lg text-gray-700 leading-relaxed">
+                My only  wish  rn is to meet you , be with you , touch you , love you ,marry you , make you feel endlessly loved and taking care of you forever .
+            </p>
+            <p class="mt-6 text-xl font-semibold text-[#fb6f92]">I love you more than words can say!</p>
+             </section>
+
+        <footer class="text-center py-8 text-gray-500">
+             Made with ❤️ by Yours and only Yours Dhruvvvv !! 💌
+             </footer>
+
+    </div>
+
+    <script>
+        // Simple JavaScript to reveal the letter
+        const revealButton = document.getElementById('revealLetterBtn');
+        const letterContent = document.getElementById('letterContent');
+
+        if (revealButton && letterContent) {
+            revealButton.addEventListener('click', () => {
+                letterContent.classList.remove('hidden');
+                letterContent.classList.add('fade-in'); // Add fade-in animation
+                revealButton.style.display = 'none'; // Hide the button after clicking
+            });
+        }
+
+    </script>
+</body>
+</html>
